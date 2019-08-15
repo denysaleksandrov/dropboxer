@@ -210,7 +210,6 @@ func upload_file(fileName, localPath, remotePath string) (error, bool) {
 
 	var result File
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		fmt.Println("Failing here")
 		return err, false
 	}
 	logger.Info(fmt.Sprintf("File %s uploaded to \"%s\". Size is %d", fileName, result.PathDisplay, result.Size))
